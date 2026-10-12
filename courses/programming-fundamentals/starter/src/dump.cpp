@@ -72,6 +72,10 @@ void show_byte(Byte b) {
     //
     // Expected for `set 0 65` then `get 0`:
     //   65  0x41  0b01000001  'A'
-    std::cout << "show_byte: not implemented yet (byte was "
-              << (int)b << ")\n";
+std::cout << (int)b << "  0x" << std::hex << (int)b << std::dec << "  0b";
+    for (int i = 7; i >= 0; --i) {
+        std::cout << ((b >> i) & 1);
+    }
+    std::cout << "  '" << (is_printable(b) ? (char)b : '.') << "'\n";
+
 }
